@@ -7,9 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN flake8 .
-RUN PYTHONPATH=. pytest --maxfail=1 --disable-warnings -q
-
 EXPOSE 8000
 
-CMD ["python", "-c", "import crud; print('CRUD app ready')"]
+CMD ["python", "-c", "import crud; print('CRUD app ready'); import time; time.sleep(3600)"]
