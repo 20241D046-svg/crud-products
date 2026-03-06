@@ -3,6 +3,7 @@ import os
 
 FILE_PATH = "products.json"
 
+
 def _load_data():
     """Carga los productos desde el archivo JSON"""
     if not os.path.exists(FILE_PATH):
@@ -10,10 +11,12 @@ def _load_data():
     with open(FILE_PATH, "r") as f:
         return json.load(f)
 
+
 def _save_data(data):
     """Guarda los productos en el archivo JSON"""
     with open(FILE_PATH, "w") as f:
         json.dump(data, f, indent=4)
+
 
 def create_product(product):
     """Agrega un nuevo producto"""
@@ -22,9 +25,11 @@ def create_product(product):
     _save_data(data)
     return product
 
+
 def read_products():
     """Devuelve la lista de productos"""
     return _load_data()
+
 
 def update_product(product_id, new_data):
     """Actualiza un producto por su id"""
@@ -35,6 +40,7 @@ def update_product(product_id, new_data):
             _save_data(data)
             return product
     return None
+
 
 def delete_product(product_id):
     """Elimina un producto por su id"""
